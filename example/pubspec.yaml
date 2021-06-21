@@ -2,7 +2,7 @@ name: stripe_payment_example
 description: Demonstrates how to use the stripe_payment plugin.
 
 environment:
-  sdk: '>=2.10.0 <3.0.0'
+  sdk: '>=2.8.0 <3.0.0'
   flutter: ">=1.12.13+hotfix.5 <3.0.0"
 
 dependencies:

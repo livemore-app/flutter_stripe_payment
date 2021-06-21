@@ -1,22 +1,22 @@
 import 'package:stripe_payment/src/card_form_payment_request.dart';
 
 class Source {
-  String? object;
-  Receiver? receiver;
-  AchCreditTransfer? achCreditTransfer;
-  num? amount;
-  String? clientSecret;
-  num? created;
-  String? currency;
-  String? flow;
-  String? sourceId;
-  bool? livemode;
-  Map<dynamic, dynamic>? metadata;
-  Owner? owner;
-  String? statementDescriptor;
-  String? status;
-  String? type;
-  String? usage;
+  String object;
+  Receiver receiver;
+  AchCreditTransfer achCreditTransfer;
+  num amount;
+  String clientSecret;
+  num created;
+  String currency;
+  String flow;
+  String sourceId;
+  bool livemode;
+  Map<dynamic, dynamic> metadata;
+  Owner owner;
+  String statementDescriptor;
+  String status;
+  String type;
+  String usage;
 
   Source(
       {this.object,
@@ -39,9 +39,11 @@ class Source {
   factory Source.fromJson(Map<dynamic, dynamic> json) {
     return Source(
       object: json['object'],
-      receiver: json['receiver'] != null ? Receiver.fromJson(json['receiver']) : null,
-      achCreditTransfer:
-          json['ach_credit_transfer'] != null ? AchCreditTransfer.fromJson(json['ach_credit_transfer']) : null,
+      receiver:
+          json['receiver'] != null ? Receiver.fromJson(json['receiver']) : null,
+      achCreditTransfer: json['ach_credit_transfer'] != null
+          ? AchCreditTransfer.fromJson(json['ach_credit_transfer'])
+          : null,
       amount: json['amount'],
       clientSecret: json['client_secret'],
       created: json['created'],
@@ -67,34 +69,35 @@ class Source {
     if (this.flow != null) data['flow'] = this.flow;
     if (this.sourceId != null) data['sourceId'] = this.sourceId;
     if (this.livemode != null) data['livemode'] = this.livemode;
-    if (this.statementDescriptor != null) data['statement_descriptor'] = this.statementDescriptor;
+    if (this.statementDescriptor != null)
+      data['statement_descriptor'] = this.statementDescriptor;
     if (this.status != null) data['status'] = this.status;
     if (this.type != null) data['type'] = this.type;
     if (this.usage != null) data['usage'] = this.usage;
     if (this.receiver != null) {
-      data['receiver'] = this.receiver!.toJson();
+      data['receiver'] = this.receiver.toJson();
     }
     if (this.achCreditTransfer != null) {
-      data['ach_credit_transfer'] = this.achCreditTransfer!.toJson();
+      data['ach_credit_transfer'] = this.achCreditTransfer.toJson();
     }
     if (this.amount != null) data['amount'] = this.amount;
     if (this.metadata != null) {
       if (this.metadata != null) data['metadata'] = this.metadata;
     }
     if (this.owner != null) {
-      data['owner'] = this.owner!.toJson();
+      data['owner'] = this.owner.toJson();
     }
     return data;
   }
 }
 
 class Receiver {
-  String? address;
-  int? amountCharged;
-  int? amountReceived;
-  int? amountReturned;
-  String? refundAttributesMethod;
-  String? refundAttributesStatus;
+  String address;
+  int amountCharged;
+  int amountReceived;
+  int amountReturned;
+  String refundAttributesMethod;
+  String refundAttributesStatus;
 
   Receiver(
       {this.address,
@@ -119,23 +122,27 @@ class Receiver {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.address != null) data['address'] = this.address;
     if (this.amountCharged != null) data['amount_charged'] = this.amountCharged;
-    if (this.amountReceived != null) data['amount_received'] = this.amountReceived;
-    if (this.amountReturned != null) data['amount_returned'] = this.amountReturned;
-    if (this.refundAttributesMethod != null) data['refund_attributes_method'] = this.refundAttributesMethod;
-    if (this.refundAttributesStatus != null) data['refund_attributes_status'] = this.refundAttributesStatus;
+    if (this.amountReceived != null)
+      data['amount_received'] = this.amountReceived;
+    if (this.amountReturned != null)
+      data['amount_returned'] = this.amountReturned;
+    if (this.refundAttributesMethod != null)
+      data['refund_attributes_method'] = this.refundAttributesMethod;
+    if (this.refundAttributesStatus != null)
+      data['refund_attributes_status'] = this.refundAttributesStatus;
     return data;
   }
 }
 
 class Owner {
-  BillingAddress? address;
-  String? email;
-  String? name;
-  String? phone;
-  BillingAddress? verifiedAddress;
-  String? verifiedEmail;
-  String? verifiedName;
-  String? verifiedPhone;
+  BillingAddress address;
+  String email;
+  String name;
+  String phone;
+  BillingAddress verifiedAddress;
+  String verifiedEmail;
+  String verifiedName;
+  String verifiedPhone;
 
   Owner(
       {this.address,
@@ -149,11 +156,15 @@ class Owner {
 
   factory Owner.fromJson(Map<dynamic, dynamic> json) {
     return Owner(
-      address: json['address'] != null ? BillingAddress.fromJson(json['address']) : null,
+      address: json['address'] != null
+          ? BillingAddress.fromJson(json['address'])
+          : null,
       email: json['email'],
       name: json['name'],
       phone: json['phone'],
-      verifiedAddress: json['verified_address'] != null ? BillingAddress.fromJson(json['verified_address']) : null,
+      verifiedAddress: json['verified_address'] != null
+          ? BillingAddress.fromJson(json['verified_address'])
+          : null,
       verifiedEmail: json['verified_email'],
       verifiedName: json['verified_name'],
       verifiedPhone: json['verified_phone'],
@@ -166,7 +177,8 @@ class Owner {
     if (this.email != null) data['email'] = this.email;
     if (this.name != null) data['name'] = this.name;
     if (this.phone != null) data['phone'] = this.phone;
-    if (this.verifiedAddress != null) data['verified_address'] = this.verifiedAddress;
+    if (this.verifiedAddress != null)
+      data['verified_address'] = this.verifiedAddress;
     if (this.verifiedEmail != null) data['verified_email'] = this.verifiedEmail;
     if (this.verifiedName != null) data['verified_name'] = this.verifiedName;
     if (this.verifiedPhone != null) data['verified_phone'] = this.verifiedPhone;
@@ -175,13 +187,18 @@ class Owner {
 }
 
 class AchCreditTransfer {
-  String? accountNumber;
-  String? bankName;
-  String? fingerprint;
-  String? routingNumber;
-  String? swiftCode;
+  String accountNumber;
+  String bankName;
+  String fingerprint;
+  String routingNumber;
+  String swiftCode;
 
-  AchCreditTransfer({this.accountNumber, this.bankName, this.fingerprint, this.routingNumber, this.swiftCode});
+  AchCreditTransfer(
+      {this.accountNumber,
+      this.bankName,
+      this.fingerprint,
+      this.routingNumber,
+      this.swiftCode});
 
   factory AchCreditTransfer.fromJson(Map<dynamic, dynamic> json) {
     return AchCreditTransfer(
@@ -194,7 +211,8 @@ class AchCreditTransfer {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<dynamic, dynamic>() as Map<String, dynamic>;
+    final Map<String, dynamic> data =
+        new Map<dynamic, dynamic>() as Map<String, dynamic>;
     if (this.accountNumber != null) data['account_number'] = this.accountNumber;
     if (this.bankName != null) data['bank_name'] = this.bankName;
     if (this.fingerprint != null) data['fingerprint'] = this.fingerprint;

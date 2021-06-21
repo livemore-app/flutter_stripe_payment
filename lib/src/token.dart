@@ -1,17 +1,22 @@
 class Token {
-  BankAccount? bankAccount;
-  CreditCard? card;
-  double? created;
-  bool? livemode;
-  String? tokenId;
+  BankAccount bankAccount;
+  CreditCard card;
+  double created;
+  bool livemode;
+  String tokenId;
 
-  Token({this.bankAccount, this.card, this.created, this.livemode, this.tokenId});
+  Token(
+      {this.bankAccount, this.card, this.created, this.livemode, this.tokenId});
 
   factory Token.fromJson(Map<dynamic, dynamic> json) {
     return Token(
-      bankAccount: json['bankAccount'] != null ? BankAccount.fromJson(json['bankAccount']) : null,
+      bankAccount: json['bankAccount'] != null
+          ? BankAccount.fromJson(json['bankAccount'])
+          : null,
       card: json['card'] != null ? CreditCard.fromJson(json['card']) : null,
-      created: json['created'] is int ? (json['created'] as int).toDouble() : json['created'],
+      created: json['created'] is int
+          ? (json['created'] as int).toDouble()
+          : json['created'],
       livemode: json['livemode'],
       tokenId: json['tokenId'],
     );
@@ -23,25 +28,25 @@ class Token {
     if (this.livemode != null) data['livemode'] = this.livemode;
     if (this.tokenId != null) data['tokenId'] = this.tokenId;
     if (this.bankAccount != null) {
-      data['bankAccount'] = this.bankAccount!.toJson();
+      data['bankAccount'] = this.bankAccount.toJson();
     }
     if (this.card != null) {
-      data['card'] = this.card!.toJson();
+      data['card'] = this.card.toJson();
     }
     return data;
   }
 }
 
 class BankAccount {
-  String? accountHolderName;
-  String? accountHolderType;
-  String? accountNumber;
-  String? bankName;
-  String? countryCode;
-  String? currency;
-  String? fingerprint;
-  String? last4;
-  String? routingNumber;
+  String accountHolderName;
+  String accountHolderType;
+  String accountNumber;
+  String bankName;
+  String countryCode;
+  String currency;
+  String fingerprint;
+  String last4;
+  String routingNumber;
 
   BankAccount(
       {this.accountHolderName,
@@ -70,8 +75,10 @@ class BankAccount {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.accountHolderName != null) data['accountHolderName'] = this.accountHolderName;
-    if (this.accountHolderType != null) data['accountHolderType'] = this.accountHolderType;
+    if (this.accountHolderName != null)
+      data['accountHolderName'] = this.accountHolderName;
+    if (this.accountHolderType != null)
+      data['accountHolderType'] = this.accountHolderType;
     if (this.accountNumber != null) data['accountNumber'] = this.accountNumber;
     if (this.bankName != null) data['bankName'] = this.bankName;
     if (this.countryCode != null) data['countryCode'] = this.countryCode;
@@ -84,24 +91,24 @@ class BankAccount {
 }
 
 class CreditCard {
-  String? addressCity;
-  String? addressCountry;
-  String? addressLine1;
-  String? addressLine2;
-  String? addressState;
-  String? addressZip;
-  String? brand;
-  String? cardId;
-  String? country;
-  String? currency;
-  int? expMonth;
-  int? expYear;
-  String? funding;
-  String? last4;
-  String? name;
-  String? number;
-  String? cvc;
-  String? token;
+  String addressCity;
+  String addressCountry;
+  String addressLine1;
+  String addressLine2;
+  String addressState;
+  String addressZip;
+  String brand;
+  String cardId;
+  String country;
+  String currency;
+  int expMonth;
+  int expYear;
+  String funding;
+  String last4;
+  String name;
+  String number;
+  String cvc;
+  String token;
 
   CreditCard(
       {this.addressCity,
@@ -148,7 +155,8 @@ class CreditCard {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.addressCity != null) data['addressCity'] = this.addressCity;
-    if (this.addressCountry != null) data['addressCountry'] = this.addressCountry;
+    if (this.addressCountry != null)
+      data['addressCountry'] = this.addressCountry;
     data['addressLine1'] = this.addressLine1;
     data['addressLine2'] = this.addressLine2;
     if (this.addressState != null) data['addressState'] = this.addressState;
